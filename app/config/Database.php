@@ -3,6 +3,7 @@
 namespace App\Config;
 
 use PDO;
+use App\Core\Response;
 
 class Database
 {
@@ -30,6 +31,16 @@ class Database
     public function find()
     {
         return $this->statement->fetch();
+    }
+
+    public function findOrFail()
+    {
+        $result = $this->find();
+        if (! $result)
+        {
+            abort(Response::NOT_FOUND);
+        }
+        return $result;
     }
 
 }
