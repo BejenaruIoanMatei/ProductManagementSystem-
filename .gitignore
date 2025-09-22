@@ -1,3 +1,5 @@
 .env
 /vendor/
 todo.md
+public/uploads/products
+*.DS_STORE

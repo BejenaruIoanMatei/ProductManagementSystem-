@@ -7,12 +7,16 @@
 </head>
 <body>
 
-<?php foreach ($products as $product) {
-    foreach ($product as $key => $value) {
-        echo "{$key} - {$value} <br>";
-    }
-    echo "<hr>";
-}?>
+<?php foreach ($products as $product): ?>
+    <?php foreach ($product as $key => $value): ?>
+        <?= htmlspecialchars($key) ?> - <?= htmlspecialchars($value) ?> <br>
+    <?php endforeach; ?>
+
+    <img src="/<?= htmlspecialchars($product['image']) ?>" 
+         alt="<?= htmlspecialchars($product['name']) ?>" 
+         height="200">
+    <hr>
+<?php endforeach; ?>
 
 </body>
 </html>
