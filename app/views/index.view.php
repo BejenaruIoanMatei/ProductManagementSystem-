@@ -9,6 +9,8 @@
 
 <?php foreach ($products as $product): ?>
     <?php foreach ($product as $key => $value): ?>
+        <?php if ($key === 'id') continue; ?> 
+
         <?= htmlspecialchars($key) ?> - <?= htmlspecialchars($value) ?> <br>
     <?php endforeach; ?>
 
@@ -17,6 +19,7 @@
          height="200">
     <hr>
 <?php endforeach; ?>
+
 
 </body>
 </html>

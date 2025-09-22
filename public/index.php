@@ -2,8 +2,6 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\Config\Database;
-
 const BASE_PATH = __DIR__ . '/../';
 
 require BASE_PATH . 'app/helpers/functions.php';
