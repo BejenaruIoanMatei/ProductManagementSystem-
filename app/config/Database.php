@@ -20,7 +20,7 @@ class Database
         ]);
     }
 
-    public function query($query, $params)
+    public function query($query, $params = [])
     {
         $this->statement = $this->connection->prepare($query);
         $this->statement->execute($params);
@@ -31,6 +31,21 @@ class Database
     public function find()
     {
         return $this->statement->fetch();
+    }
+
+    public function findAll()
+    {
+        return $this->statement->fetchAll();
+    }
+
+    public function findAllOrFail()
+    {
+        $result = $this->findAll();
+        if (! $result)
+        {
+            abort(Response::NOT_FOUND);
+        }
+        return $result;
     }
 
     public function findOrFail()
