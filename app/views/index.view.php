@@ -6,10 +6,13 @@
     <title>Products Page</title>
 </head>
 <body>
-    <?php foreach ($products as $product) : ?>
-        <li>
-            <?= $product ?>
-        </li>
-    <?php endforeach ?>
+
+<?php foreach ($products as $product) {
+    foreach ($product as $key => $value) {
+        echo "{$key} - {$value} <br>";
+    }
+    echo "<hr>";
+}?>
+
 </body>
 </html>

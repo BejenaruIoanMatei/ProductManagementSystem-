@@ -38,7 +38,7 @@ class Database
         return $this->statement->fetchAll();
     }
 
-    public function findAllOrFail()
+    public function findAllOrFail(): mixed
     {
         $result = $this->findAll();
         if (! $result)
