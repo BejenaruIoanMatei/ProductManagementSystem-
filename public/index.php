@@ -14,7 +14,15 @@ $config = require base_path('app/config/config.php');
 
 $db = new Database($config['database']);
 $result = $db->query('select * from products where id = :id',[
-    'id' => 2
+    'id' => 1
 ])->findOrFail();
 
-dd($result);
+$router = new App\Core\Router();
+
+$routes = require base_path('app/routes.php');
+
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+
+$router->route($uri, $method);
