@@ -48,7 +48,7 @@ class Database
         return $result;
     }
 
-    public function findOrFail()
+    public function findOrFail(): mixed
     {
         $result = $this->find();
         if (! $result)
