@@ -4,6 +4,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 const BASE_PATH = __DIR__ . '/../';
 
+session_start();
+
 require BASE_PATH . 'app/helpers/functions.php';
 
 $router = new App\Core\Router();

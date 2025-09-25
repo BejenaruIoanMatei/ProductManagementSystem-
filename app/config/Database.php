@@ -28,7 +28,7 @@ class Database
         return $this;
     }
 
-    public function find()
+    public function find(): mixed
     {
         return $this->statement->fetch();
     }
@@ -38,7 +38,7 @@ class Database
         return $this->statement->fetchAll();
     }
 
-    public function findAllOrFail(): mixed
+    public function findAllOrFail(): array
     {
         $result = $this->findAll();
         if (! $result)

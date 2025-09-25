@@ -4,7 +4,7 @@ namespace App\Core;
 
 class Validator 
 {
-    public static function string($value, $min = 10, $max = INF)
+    public static function string($value, $min = 1, $max = INF)
     {
         $value = trim($value);
         return strlen($value) >= $min and strlen($value) < $max;
@@ -33,6 +33,11 @@ class Validator
     {
         $d = \DateTime::createFromFormat($format, $value);
         return $d and $d->format($format) === $value;
+    }
+
+    public static function email($value)
+    {
+        return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 
 }

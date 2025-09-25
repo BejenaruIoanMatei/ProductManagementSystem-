@@ -20,6 +20,7 @@
     <hr>
 <?php endforeach; ?>
 
+<a href="/" style="color: #27D3F5;">Go back...</a>
 
 </body>
 </html>

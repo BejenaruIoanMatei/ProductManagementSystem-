@@ -26,3 +26,9 @@ function abort($code)
     require base_path("app/views/$code.php");
     exit();
 }
+
+function redirect($path)
+{
+    header("location: $path");
+    exit();
+}

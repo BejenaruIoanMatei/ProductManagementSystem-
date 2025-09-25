@@ -12,7 +12,6 @@ $product = $db->query('select * from products where id = :id',[
     'id' => $currentProductID
 ])->findAllOrFail();
 
-
 view('show.view.php', [
     'product' => $product
 ]);
