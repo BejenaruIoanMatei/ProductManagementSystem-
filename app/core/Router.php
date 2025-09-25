@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Core;
+use App\Core\Middleware\Middleware;
 
 class Router
 {
@@ -11,8 +12,16 @@ class Router
         $this->routes[] = [
             'uri' => $uri,
             'method' => $method,
-            'controller' => $controller
+            'controller' => $controller,
+            'middleware' => null
         ];
+
+        return $this;
+    }
+
+    public function only($key)
+    {
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
 
         return $this;
     }
@@ -47,6 +56,8 @@ class Router
     {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri and $route['method'] === strtoupper($method)){
+                Middleware::resolve($route['middleware']);
+
                 return require base_path('app/controllers/' . $route['controller']);
             }
         }

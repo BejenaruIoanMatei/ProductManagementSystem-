@@ -1,13 +1,11 @@
 <?php 
 
-$router->get('/products/create', 'create.php');
-
+$router->get('/products/create', 'create.php')->only('auth');
 $router->post('/products', 'store.php');
+$router->get('/product', 'show.php')->only('auth');
+
 $router->get('/', 'index.php');
 
-// $router->get('/product/edit', '/edit.php');
-$router->get('/product', 'show.php');
-
-$router->get('/login/', 'session/create.php');
+$router->get('/login/', 'session/create.php')->only('guest');
 $router->post('/session', 'session/store.php');
 
