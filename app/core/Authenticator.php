@@ -19,21 +19,15 @@ class Authenticator
 
         if ($user)
         {
-            // if (password_verify($password, $user['password']))
-            // {
-            //     $this->login([
-            //         'email' => $email
-            //     ]);
+            if (password_verify($password, $user['password']))
+            {
+                $this->login([
+                    'email' => $email
+                ]);
 
-            //     return true;
+                return true;
 
-            // }
-
-            $this->login([
-                'email' => $email
-            ]);
-
-            return true;
+            }
         }
     }
 
