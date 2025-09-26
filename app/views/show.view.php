@@ -26,6 +26,10 @@
             <input type="hidden" name="id" value="<?= htmlspecialchars($fields['id']) ?>">
             <button style="color: red; margin-top: 1em;">Delete</button>
         </form>
+
+        <footer style="margin-top: 1em;">
+            <a href="product/edit?id=<?= $fields['id'] ?>">Edit</a>
+        </footer>
     <?php endforeach; ?>
 
 
