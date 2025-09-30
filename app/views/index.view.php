@@ -8,6 +8,7 @@
 <body>
 
 <?php require base_path('app/views/partials/nav.php') ?>
+<?php require base_path('app/views/partials/banner.php') ?>
 
 <?php foreach ($products as $product): ?>
     <?php foreach ($product as $key => $value): ?>

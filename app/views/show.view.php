@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products Page</title>
 </head>
+
+    <?php require base_path('app/views/partials/banner.php') ?>
+    
     <body>
+    
 
     <?php foreach ($product as $fields): ?>
         <?php foreach ($fields as $key => $value): ?>
