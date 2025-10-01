@@ -3,7 +3,7 @@
         <li>
             <a href="/">Home</a>
         </li>
-        <?php if($_SESSION['user'] ?? false): ?>
+        <?php if(($_SESSION['user'] ?? false) and ($_SERVER['REQUEST_URI'] !== '/products/create')) : ?>
             <li>
                 <a href="/products/create">Create</a>
             </li>

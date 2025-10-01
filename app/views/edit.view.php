@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
-    <style>
-        .error {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
-</head>
+<?php require base_path('app/views/partials/head.html') ?>
+
 <body>
     <main>
         <h1>Add a New Product</h1>

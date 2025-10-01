@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products Page</title>
-</head>
+
+<?php require base_path('app/views/partials/head.html') ?>
+
 <body>
 
 <?php require base_path('app/views/partials/nav.php') ?>
