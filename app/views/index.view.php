@@ -5,6 +5,10 @@
     <?php require base_path('app/views/partials/nav.php') ?>
     <?php require base_path('app/views/partials/banner.php') ?>
 
+    <form action="/" method="GET">
+        <input type="text" name="search" placeholder="Search product..." value="<?= htmlspecialchars($_GET['search'] ?? '')?>">
+        <button type="submit">Search</button>
+    </form>
     <?php foreach ($products as $product): ?>
         <?php foreach ($product as $key => $value): ?>
             <?php if ($key === 'name') : ?>

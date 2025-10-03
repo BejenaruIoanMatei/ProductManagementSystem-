@@ -6,6 +6,27 @@ $config = require base_path('app/config/config.php');
 
 $db = new Database($config['database']);
 
+if($_GET['search'] ?? false)
+{
+    $result_from_search = $db->query('select * from products where name = :name',[
+        'name' => $_GET['search']
+    ])->find();
+
+    if(! $result_from_search)
+    {
+        view('search.view.php',[
+            'heading' => 'Product not found'
+        ]);
+        exit();
+    }
+
+    view('search_show.view.php',[
+        'heading' => 'Product found',
+        'product' => $result_from_search
+    ]);
+    exit();
+}
+
 $start = 0;
 $rows_per_page = 3;
 
@@ -22,8 +43,6 @@ if(isset($_GET['page-nr']))
 }
 
 $result = $db->query("select * from products limit $start, $rows_per_page")->findAllOrFail();
-
-// $result = $db->query('select * from products')->findAllOrFail();
 
 $heading = 'Home Page';
 
