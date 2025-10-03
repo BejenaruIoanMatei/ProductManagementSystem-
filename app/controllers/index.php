@@ -36,9 +36,9 @@ $number_of_records = $records[0]["count(*)"];
 
 $pages = ceil($number_of_records / $rows_per_page);
 
-if(isset($_GET['page-nr']))
+if(isset($_GET['page']))
 {
-    $page = $_GET['page-nr'] - 1;
+    $page = $_GET['page'] - 1;
     $start = $page * $rows_per_page;
 }
 

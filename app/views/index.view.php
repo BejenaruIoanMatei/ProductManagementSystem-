@@ -10,32 +10,31 @@
         <button type="submit">Search</button>
     </form>
     <?php foreach ($products as $product): ?>
-        <?php foreach ($product as $key => $value): ?>
-            <?php if ($key === 'id') 
-                continue ?>
-            <?php if ($key === 'name') : ?>
-                <a href="/product?id=<?= $product['id'] ?>">Link to Product</a>
-                <br>
-            <?php endif ?>
-
-            <?= htmlspecialchars($key) ?> - <?= htmlspecialchars($value) ?> <br>
-        <?php endforeach; ?>
-
-        <img src="/<?= htmlspecialchars($product['image']) ?>" 
-            alt="<?= htmlspecialchars($product['name']) ?>" 
-            height="200">
-        <hr>
+        <div class="product">
+            <a href="/product?id=<?= $product['id'] ?>" class="product-link">
+                <img src="/<?= htmlspecialchars($product['image']) ?>" 
+                    alt="<?= htmlspecialchars($product['name']) ?>">
+            </a>
+            <div class="product-info">
+                <h3><?= htmlspecialchars($product['name']) ?></h3>
+                <?php foreach ($product as $key => $value): ?>
+                    <?php if ($key === 'id' or $key === 'image' or $key === 'created_at') continue ?>
+                    <p><strong><?= htmlspecialchars($key) ?>:</strong> <?= htmlspecialchars($value) ?></p>
+                <?php endforeach; ?>
+            </div>
+        </div>
     <?php endforeach; ?>
+
 
 
 
     <div class="page-info">
         <?php 
-            if(!isset($_GET['page-nr']))
+            if(!isset($_GET['page']))
             {
                 $page = 1;
             }else{
-                $page = $_GET['page-nr'];
+                $page = $_GET['page'];
             }
         ?>
 
@@ -43,13 +42,13 @@
     </div>
 
     <div class="pagination">
-        <a href="?page-nr=1">First</a>
+        <a href="?page=1">First</a>
 
         <?php
-            if(isset($_GET['page-nr']) and $_GET['page-nr'] > 1)
+            if(isset($_GET['page']) and $_GET['page'] > 1)
             {
                 ?>
-                    <a href="?page-nr=<?= $_GET['page-nr'] - 1?>">Previous</a>
+                    <a href="?page=<?= $_GET['page'] - 1?>">Previous</a>
                 <?php
             }else{
                 ?>
@@ -62,32 +61,32 @@
                 for ($counter = 1; $counter <= $pages; $counter ++)
                 {
                     ?>
-                        <a href="?page-nr=<?= $counter ?>"><?= $counter ?></a>
+                        <a href="?page=<?= $counter ?>"><?= $counter ?></a>
                     <?php
                 }
             ?>
         </div>
 
         <?php
-            if(!isset($_GET['page-nr']))
+            if(!isset($_GET['page']))
             {
                 ?>
-                    <a href="?page-nr=2">Next</a>
+                    <a href="?page=2">Next</a>
                 <?php
             }else{
-                if($_GET['page-nr'] >= $pages)
+                if($_GET['page'] >= $pages)
                 {
                     ?>
                         <a>Next</a>
                     <?php
                 }else{
                     ?>
-                        <a href="?page-nr=<?= $_GET['page-nr'] + 1 ?>">Next</a>
+                        <a href="?page=<?= $_GET['page'] + 1 ?>">Next</a>
                     <?php
                 }
             }
         ?>
-        <a href="?page-nr=<?= $pages ?>">Last</a>
+        <a href="?page=<?= $pages ?>">Last</a>
     </div>
 </body>
 </html>
