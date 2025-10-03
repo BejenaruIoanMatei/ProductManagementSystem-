@@ -11,6 +11,8 @@
     </form>
     <?php foreach ($products as $product): ?>
         <?php foreach ($product as $key => $value): ?>
+            <?php if ($key === 'id') 
+                continue ?>
             <?php if ($key === 'name') : ?>
                 <a href="/product?id=<?= $product['id'] ?>">Link to Product</a>
                 <br>
