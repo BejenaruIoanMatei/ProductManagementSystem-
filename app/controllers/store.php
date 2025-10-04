@@ -18,7 +18,7 @@ if (! Validator::string($_POST['description'], 1, 100))
     $errors['description'] = 'Description needs to be between 100 and 200 characters';
 }
 
-if (! Validator::number($_POST['price'], 1, 1000))
+if (! Validator::number($_POST['price'], 1, 10000))
 {
     $errors['price'] = 'WOW THATS TOO MUCH';
 }

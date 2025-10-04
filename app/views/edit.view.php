@@ -2,7 +2,8 @@
 
 <body>
     <main>
-        <h1>Add a New Product</h1>
+
+        <?php require base_path('app/views/partials/banner.php') ?>
 
         <form action="/product" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="PUT">
@@ -73,7 +74,7 @@
             <br><br>
             
             <div>
-                <a href="/">Cancel</a>
+                <a href="../product?id=<?= $product['id'] ?>">Cancel</a>
             </div>
             <button type="submit">Update</button>
         </form>

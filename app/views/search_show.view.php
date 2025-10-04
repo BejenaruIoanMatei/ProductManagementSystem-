@@ -2,30 +2,36 @@
 
 
 <body>
-    <?php require base_path('app/views/partials/nav.php') ?>   
+    <?php require base_path('app/views/partials/nav.php') ?>
     <?php require base_path('app/views/partials/banner.php') ?>
 
-    <?php foreach ($product as $key => $value) : ?>
-        <?php if ($key === 'id')
-            continue ?>
-        <?= htmlspecialchars($key) ?> - <?= htmlspecialchars($value) ?>
-        <br>
-    <?php endforeach ?>
+    <div class="product-show">
+        <div class="product-card">
+            <img src="/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['image']) ?>">
 
-    <img src="/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($fields['name']) ?>" height="200">
-    <hr>
+            <div class="product-details">
+                <h1><?= htmlspecialchars($product['name']) ?></h1>
+                <?php foreach ($product as $key => $value): ?>
+                    <?php if (in_array($key, ['id', 'name', 'image']))
+                        continue; ?>
+                    <p><strong><?= htmlspecialchars(ucfirst($key)) ?>:</strong> <?= htmlspecialchars($value) ?></p>
+                <?php endforeach; ?>
 
-    <a href="/" style="color: #27D3F5;">Go back...</a>
+                <div class="actions">
+                    <a href="/" class="back-btn">Back</a>
+                    <a href="product/edit?id=<?= $product['id'] ?>" class="edit-btn">Edit</a>
 
-    <form action="/product" class="mt-6" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="id" value="<?= htmlspecialchars($product['id']) ?>">
-        <button style="color: red; margin-top: 1em;">Delete</button>
-    </form>
+                    <form action="/product" method="POST" class="delete-form">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="id" value="<?= htmlspecialchars($product['id']) ?>">
+                        <button class="delete-btn">Delete</button>
+                    </form>
 
-    <footer style="margin-top: 1em;">
-        <a href="product/edit?id=<?= $product['id'] ?>">Edit</a>
-    </footer>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 

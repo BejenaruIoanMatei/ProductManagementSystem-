@@ -1,11 +1,10 @@
-
 <?php require base_path('app/views/partials/head.html') ?>
 
 <body>
     <?php require base_path('app/views/partials/nav.php') ?>
     <?php require base_path('app/views/partials/banner.php') ?>
 
-    <form action="/" method="GET">
+    <form action="/" method="GET" class="search-form">
         <input type="text" name="search" placeholder="Search product..." value="<?= htmlspecialchars($_GET['search'] ?? '')?>">
         <button type="submit">Search</button>
     </form>
@@ -18,15 +17,12 @@
             <div class="product-info">
                 <h3><?= htmlspecialchars($product['name']) ?></h3>
                 <?php foreach ($product as $key => $value): ?>
-                    <?php if ($key === 'id' or $key === 'image' or $key === 'created_at') continue ?>
+                    <?php if ($key === 'id' or $key === 'image' or $key === 'created_at' or $key === 'name') continue ?>
                     <p><strong><?= htmlspecialchars($key) ?>:</strong> <?= htmlspecialchars($value) ?></p>
                 <?php endforeach; ?>
             </div>
         </div>
     <?php endforeach; ?>
-
-
-
 
     <div class="page-info">
         <?php 

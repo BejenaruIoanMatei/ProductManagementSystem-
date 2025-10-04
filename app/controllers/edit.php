@@ -10,9 +10,10 @@ $product = $db->query('select * from products where id = :id',[
     'id' => $_GET['id']
 ])->findOrFail();
 
-// dd($product);
+$heading = 'Edit product';
 
 view('edit.view.php',[
     'errors' => [],
+    'heading' => $heading,
     'product' => $product
 ]);
