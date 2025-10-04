@@ -4,12 +4,11 @@
 <body>
 
 <?php require base_path('app/views/partials/nav.php') ?>
+<?php require base_path('app/views/partials/banner.php') ?>
 
 
     <main>
-        <h1>Add a New Product</h1>
-
-        <form action="/products" method="POST" enctype="multipart/form-data">
+        <form class="create-product-form" action="/products" method="POST" enctype="multipart/form-data">
             <label>
                 Name: <br>
                 <input type="text" name="name" required>
@@ -57,8 +56,8 @@
             <br><br>
 
             <label>
+                In Stock: <br>
                 <input type="number" name="in_stock" value="1" required>
-                In Stock
             </label>
             <?php if (isset($errors['in_stock'])) : ?>
                 <p class="error"><?= $errors['in_stock'] ?></p>

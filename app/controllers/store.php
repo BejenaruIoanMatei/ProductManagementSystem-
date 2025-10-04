@@ -51,7 +51,8 @@ if (! Validator::date($_POST['created_at']))
 
 if (! empty($errors)){
     view('create.view.php', [
-        'errors' => $errors
+        'errors' => $errors,
+        'heading' => 'Create a New Product'
     ]);
 }
 
