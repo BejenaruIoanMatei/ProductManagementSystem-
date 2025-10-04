@@ -28,7 +28,7 @@ if($_GET['search'] ?? false)
 }
 
 $start = 0;
-$rows_per_page = 3;
+$rows_per_page = 6;
 
 $records = $db->query('select count(*) from products')->findAllOrFail();
 

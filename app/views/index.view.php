@@ -8,21 +8,23 @@
         <input type="text" name="search" placeholder="Search product..." value="<?= htmlspecialchars($_GET['search'] ?? '')?>">
         <button type="submit">Search</button>
     </form>
-    <?php foreach ($products as $product): ?>
-        <div class="product">
-            <a href="/product?id=<?= $product['id'] ?>" class="product-link">
-                <img src="/<?= htmlspecialchars($product['image']) ?>" 
-                    alt="<?= htmlspecialchars($product['name']) ?>">
-            </a>
-            <div class="product-info">
-                <h3><?= htmlspecialchars($product['name']) ?></h3>
-                <?php foreach ($product as $key => $value): ?>
-                    <?php if ($key === 'id' or $key === 'image' or $key === 'created_at' or $key === 'name') continue ?>
-                    <p><strong><?= htmlspecialchars($key) ?>:</strong> <?= htmlspecialchars($value) ?></p>
-                <?php endforeach; ?>
+    <div class="products-home">
+        <?php foreach ($products as $product): ?>
+            <div class="product">
+                <a href="/product?id=<?= $product['id'] ?>" class="product-link">
+                    <img src="/<?= htmlspecialchars($product['image']) ?>" 
+                        alt="<?= htmlspecialchars($product['name']) ?>">
+                </a>
+                <div class="product-info">
+                    <h3><?= htmlspecialchars($product['name']) ?></h3>
+                    <?php foreach ($product as $key => $value): ?>
+                        <?php if ($key === 'id' or $key === 'image' or $key === 'created_at' or $key === 'name') continue ?>
+                        <p><strong><?= htmlspecialchars($key) ?>:</strong> <?= htmlspecialchars($value) ?></p>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
 
     <div class="page-info">
         <?php 
