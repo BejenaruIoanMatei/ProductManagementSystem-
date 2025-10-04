@@ -2,7 +2,7 @@
 
 $router->get('/products/create', 'create.php')->only('auth');
 $router->post('/products', 'store.php');
-$router->get('/product', 'show.php')->only('auth');
+$router->get('/product', 'show.php');
 $router->delete('/product', 'destroy.php')->only('auth');
 $router->get('/product/edit', 'edit.php')->only('auth');
 $router->put('/product', 'update.php')->only('auth');
