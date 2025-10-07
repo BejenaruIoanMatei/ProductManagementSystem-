@@ -8,14 +8,14 @@ $db = new Database($config['database']);
 
 $errors = [];
 
-if (! Validator::string($_POST['name'], 1, 100))
+if (! Validator::string($_POST['name'], 1, 1000))
 {
-    $errors['name'] = 'Name needs to be between 50 and 100 characters';
+    $errors['name'] = 'Name needs to be between 1 and 1000 characters';
 }
 
-if (! Validator::string($_POST['description'], 1, 100))
+if (! Validator::string($_POST['description'], 1, 1000))
 {
-    $errors['description'] = 'Description needs to be between 100 and 200 characters';
+    $errors['description'] = 'Description needs to be between 1 and 1000 characters';
 }
 
 if (! Validator::number($_POST['price'], 1, 10000))

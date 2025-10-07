@@ -13,12 +13,12 @@ $product = $db->query('select * from products where id = :id',[
     'id' => $_POST['id']
 ])->findOrFail();
 
-if (! Validator::string($_POST['name'], 1, 3))
+if (! Validator::string($_POST['name'], 1, 1000))
 {
     $errors['name'] = 'Name needs to be between 50 and 100 characters';
 }
 
-if (! Validator::string($_POST['description'], 1, 3))
+if (! Validator::string($_POST['description'], 1, 1000))
 {
     $errors['description'] = 'Description needs to be between 100 and 200 characters';
 }
@@ -28,7 +28,7 @@ if (! Validator::number($_POST['price'], 1, 1000))
     $errors['price'] = 'WOW THATS TOO MUCH';
 }
 
-if (! Validator::number($_POST['in_stock'], 1, 100))
+if (! Validator::number($_POST['in_stock'], 1, 1000))
 {
     $errors['description'] = 'We cant store this much bro';
 }
@@ -61,6 +61,7 @@ if (! empty($errors))
         'product' => $product
     ]);
 }
+
 
 if (empty($errors)) {
     $db->query(

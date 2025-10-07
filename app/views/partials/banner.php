@@ -1,7 +1,7 @@
 <header>
     <div>
         <h1>
-            <?= $heading ?>
+            <?= $heading ?? ''?>
         </h1>
     </div>
 </header>

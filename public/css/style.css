@@ -185,7 +185,7 @@ body {
 }
 
 .product-card {
-  max-width: 400px;
+  max-width: 300px;
   width: 100%;
   text-align: center;
 }
@@ -211,11 +211,17 @@ body {
 }
 
 .actions {
-  display: flexbox;
+  display: block;
   justify-content: center;
   gap: 15px;
   margin-top: 30px;
   flex-wrap: wrap;
+}
+
+.delete-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .back-btn,

@@ -1,11 +1,11 @@
 <?php require base_path('app/views/partials/head.html') ?>
 
+
 <body>
+<?php require base_path('app/views/partials/nav.php') ?>
+<?php require base_path('app/views/partials/banner.php') ?>
     <main>
-
-        <?php require base_path('app/views/partials/banner.php') ?>
-
-        <form action="/product" method="POST" enctype="multipart/form-data">
+        <form class="create-product-form" action="/product" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="id" value="<?= htmlspecialchars($product['id']) ?>">
             <label>
