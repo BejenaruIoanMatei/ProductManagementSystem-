@@ -12,3 +12,7 @@ $router->get('/', 'index.php');
 $router->get('/login/', 'session/create.php')->only('guest');
 $router->post('/session', 'session/store.php');
 
+# endpoint for testing some javascript functionalities
+
+$router->get('/javascript', 'test_js/index.php');
+$router->post('/javascript', 'test_js/store.php');
