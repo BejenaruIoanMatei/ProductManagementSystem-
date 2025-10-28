@@ -34,27 +34,24 @@
             </div>
         <?php endforeach; ?>
     </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>;
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const deleteForms = document.querySelectorAll('.delete-form');
+        document.addEventListener("DOMContentLoaded", () => {
+            const deleteForms = document.querySelectorAll(".delete-form");
 
-            deleteForms.forEach(form => {
-                form.addEventListener('submit', (e) => {
+            deleteForms.forEach((form) => {
+                form.addEventListener("submit", (e) => {
                     e.preventDefault();
 
                     Swal.fire({
-                        title: 'Are you sure?',
+                        title: "Are you sure?",
                         text: "This action is permanent",
-                        icon: 'warning',
+                        icon: "warning",
                         showCancelButton: true,
-                        confirmButtonColor: '#d33',
-                        cancelButtonColor: '#3085d6',
-                        confirmButtonText: 'Yes, delete it!',
-                        cancelButtonText: 'Cancel'
+                        confirmButtonColor: "#d33",
+                        cancelButtonColor: "#3085d6",
+                        confirmButtonText: "Yes, delete it!",
+                        cancelButtonText: "Cancel",
                     }).then((result) => {
                         if (result.isConfirmed) {
                             form.submit();
@@ -63,8 +60,8 @@
                 });
             });
         });
-    </script>
 
+    </script>
 
 </body>
 

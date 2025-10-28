@@ -11,6 +11,7 @@ $router->get('/', 'index.php');
 
 $router->get('/login/', 'session/create.php')->only('guest');
 $router->post('/session', 'session/store.php');
+$router->get('/check_session', 'session/check_session.php');
 
 # endpoint for testing some javascript functionalities
 
