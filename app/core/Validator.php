@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-class Validator 
+class Validator
 {
     /**
      * Checks if a given string has a limit of characters, no less than min or greater than max
@@ -30,8 +30,7 @@ class Validator
      */
     public static function number($value, $min = 1, $max = INF)
     {
-        if (! is_numeric($value))
-        {
+        if (!is_numeric($value)) {
             return false;
         }
         return $value >= $min and $value < $max;
@@ -47,9 +46,10 @@ class Validator
      * 
      * @return [type]
      */
-    public static function image($file, $maxSize = 5000000) 
+    public static function image($file, $maxSize = 5000000)
     {
-        if (!isset($file['error']) || $file['error'] !== UPLOAD_ERR_OK) return false;
+        if (!isset($file['error']) || $file['error'] !== UPLOAD_ERR_OK)
+            return false;
 
         $validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
         $fileType = mime_content_type($file['tmp_name']);
@@ -83,4 +83,26 @@ class Validator
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 
+    /**
+     * Returns the path to the image
+     * 
+     * @param array $img $_FILES['image']
+     * 
+     * @return mixed string for imagePath
+     *               void if the upload failed
+     */
+    public static function img_verify($img)
+    {
+        if (!empty($img) && $img['error'] === UPLOAD_ERR_OK) {
+
+            $imageName = uniqid() . '_' . basename($img['name']);
+            $uploadDir = 'uploads/products/';
+            $uploadPath = base_path('public/' . $uploadDir . $imageName);
+
+            move_uploaded_file($img['tmp_name'], $uploadPath);
+
+            $imagePath = $uploadDir . $imageName;
+            return $imagePath;
+        }
+    }
 }

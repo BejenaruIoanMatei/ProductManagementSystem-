@@ -56,13 +56,16 @@ if (! empty($errors)){
     ]);
 }
 
+$imagePath = Validator::img_verify($_FILES['image']);
+
 if (empty($errors))
 {
     $result = $db->query('insert into products(name, description, price, image, availability_date, in_stock, created_at) values (:name, :description, :price, :image, :availability_date, :in_stock, :created_at)',[
         'name' => $_POST['name'],
         'description' => $_POST['description'],
         'price' => $_POST['price'],
-        'image' => 'uploads/products/default.jpg',
+        // 'image' => 'uploads/products/default.jpg',
+        'image' => $imagePath,
         'availability_date' => $_POST['availability_date'],
         'in_stock' => $_POST['in_stock'],
         'created_at' => $_POST['created_at']

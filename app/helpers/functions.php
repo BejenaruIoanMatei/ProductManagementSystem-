@@ -68,3 +68,17 @@ function redirect($path)
     header("location: $path");
     exit();
 }
+
+function img_verify($img)
+{
+    if (!empty($img) && $img['error'] === UPLOAD_ERR_OK) {
+
+        $imageName = uniqid() . '_' . basename($img['name']);
+        $uploadDir = 'uploads/products/';
+        $uploadPath = base_path('public/' . $uploadDir . $imageName);
+
+        move_uploaded_file($img['tmp_name'], $uploadPath);
+
+        return $uploadDir . $imageName;
+    }
+}

@@ -62,6 +62,7 @@ if (! empty($errors))
     ]);
 }
 
+$imagePath = Validator::img_verify($_FILES['image']);
 
 if (empty($errors)) {
     $db->query(
@@ -79,7 +80,8 @@ if (empty($errors)) {
             'name' => !empty($_POST['name']) ? $_POST['name'] : $product['name'],
             'description' => !empty($_POST['description']) ? $_POST['description'] : $product['description'],
             'price' => !empty($_POST['price']) ? $_POST['price'] : $product['price'],
-            'image' => 'uploads/products/default.jpg',
+            // 'image' => 'uploads/products/default.jpg',
+            'image' => $imagePath,
             'availability_date' => !empty($_POST['availability_date']) ? $_POST['availability_date'] : $product['availability_date'],
             'in_stock' => isset($_POST['in_stock']) ? $_POST['in_stock'] : $product['in_stock'],
             'created_at' => !empty($_POST['created_at']) ? $_POST['created_at'] : $product['created_at'],
