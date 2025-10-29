@@ -5,8 +5,21 @@ use App\Core\Middleware\Middleware;
 
 class Router
 {
+    /**
+     * @var array registered routes
+     */
     protected $routes = [];
 
+    /**
+     * Adds a new route to the registered ones (registers a new one)
+     * 
+     * @param string $method
+     * @param string $uri
+     * @param string $controller
+     * middleware set to null
+     * 
+     * @return self
+     */
     public function add($method, $uri, $controller)
     {
         $this->routes[] = [
@@ -19,6 +32,13 @@ class Router
         return $this;
     }
 
+    /**
+     * Attaches middleware to the last registered route
+     * 
+     * @param string $key 'auth' or 'guest'
+     * 
+     * @return self
+     */
     public function only($key)
     {
         $this->routes[array_key_last($this->routes)]['middleware'] = $key;
@@ -26,32 +46,66 @@ class Router
         return $this;
     }
 
+    /**
+     * GET
+     * 
+     * @param string $uri
+     * @param string $controller
+     * 
+     * @return self
+     */
     public function get($uri, $controller)
     {
         return $this->add('GET', $uri, $controller);
     }
 
+    /**
+     * POST
+     * 
+     * @param string $uri
+     * @param string $controller
+     * 
+     * @return self
+     */
     public function post($uri, $controller)
     {
         return $this->add('POST', $uri, $controller);
     }
 
+    /**
+     * DELETE
+     * 
+     * @param string $uri
+     * @param string $controller
+     * 
+     * @return self
+     */
     public function delete($uri, $controller)
     {
         return $this->add('DELETE', $uri, $controller);
     }
 
+    /**
+     * PUT
+     * 
+     * @param string $uri
+     * @param string $controller
+     * 
+     * @return self
+     */
     public function put($uri, $controller)
     {
         return $this->add('PUT', $uri, $controller);
     }
 
-    // public function patch($uri, $controller)
-    // {
-    //     return $this->add('PATCH', $uri, $controller);
-    // }
-
-
+    /**
+     * Gets the corresponding route to a HTTP request
+     * 
+     * @param string $uri
+     * @param string $method
+     * 
+     * @return mixed
+     */
     public function route($uri, $method)
     {
         foreach ($this->routes as $route) {
@@ -62,6 +116,12 @@ class Router
         }
         $this->abort(Response::NOT_FOUND);
     }
+
+    /**
+     * @param int $code
+     * 
+     * @return never
+     */
     protected function abort($code = 404)
     {
         http_response_code($code);

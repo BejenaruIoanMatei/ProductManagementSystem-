@@ -39,7 +39,7 @@ class Authenticator
     }
 
     /**
-     * @param array $user ['email' => 'example.com']
+     * @param array $user ['email' => 'example@gmail.com']
      * 
      * @return void 
      */
