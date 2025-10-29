@@ -7,6 +7,13 @@ use App\Core\Session;
 
 class Authenticator
 {
+    /**
+     * @param string $email user email
+     * @param string $password user password
+     * 
+     * @return mixed boolean if there is a user with the given email
+     *               void if there is no match for the given email
+     */
     public function attempt($email, $password)
     {
         $config = require base_path('app/config/config.php');
@@ -31,6 +38,11 @@ class Authenticator
         }
     }
 
+    /**
+     * @param array $user ['email' => 'example.com']
+     * 
+     * @return void 
+     */
     public function login($user)
     {
         $_SESSION['user'] = [
@@ -43,6 +55,9 @@ class Authenticator
 
     }
 
+    /**
+     * @return void
+     */
     public function logout()
     {
         Session::destroy();

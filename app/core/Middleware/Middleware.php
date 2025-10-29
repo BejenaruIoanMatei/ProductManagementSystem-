@@ -12,15 +12,25 @@ class Middleware
         'auth' => Auth::class,
     ];
 
-    public static function resolve($key){
+    /**
+     * Runs middleware for the given key : auth or guest
+     *
+     * @param string $key 'auth' or 'guest'
+     *
+     * @return void
+     * 
+     * @throws \Exception No middleware for given key
+     */
+    public static function resolve($key)
+    {
 
-        if (! $key){
+        if (!$key) {
             return;
         }
 
         $middleware = static::MAP[$key] ?? false;
 
-        if (! $middleware){
+        if (!$middleware) {
             throw new \Exception("No matching middleware for {$key}");
         }
 
