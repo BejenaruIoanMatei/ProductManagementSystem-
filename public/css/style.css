@@ -177,6 +177,12 @@ body {
   background: #eee;
 }
 
+.page-numbers a.active {
+  background-color: #0077b6;
+  color: white;
+  font-weight: bold;
+}
+
 .product-show {
   display: flex;
   justify-content: center;

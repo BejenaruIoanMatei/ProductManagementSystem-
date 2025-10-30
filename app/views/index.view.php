@@ -58,8 +58,9 @@
             <?php 
                 for ($counter = 1; $counter <= $pages; $counter ++)
                 {
+                    $activeClass = ($counter == $page) ? 'active' : '';
                     ?>
-                        <a href="?page=<?= $counter ?>"><?= $counter ?></a>
+                        <a href="?page=<?= $counter ?>" class="<?=$activeClass?>"><?= $counter ?></a>
                     <?php
                 }
             ?>
