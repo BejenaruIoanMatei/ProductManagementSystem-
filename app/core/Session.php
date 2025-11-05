@@ -23,10 +23,10 @@ class Session
      */
     public static function get($key, $default = null)
     {
-        if (isset($_SESSION['_flash'][$key])){
+        if (isset($_SESSION['_flash'][$key])) {
             return $_SESSION['_flash'][$key];
-            
         }
+
         return $_SESSION[$key] ?? $default;
     }
 
@@ -89,5 +89,4 @@ class Session
             httponly: $params['httponly']
         );
     }
-
 }

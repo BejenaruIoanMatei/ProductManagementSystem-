@@ -16,6 +16,7 @@ class Validator
     public static function string($value, $min = 1, $max = INF)
     {
         $value = trim($value);
+
         return strlen($value) >= $min and strlen($value) < $max;
     }
 
@@ -33,6 +34,7 @@ class Validator
         if (!is_numeric($value)) {
             return false;
         }
+
         return $value >= $min and $value < $max;
     }
 
@@ -68,6 +70,7 @@ class Validator
     public static function date($value, $format = 'Y-m-d')
     {
         $d = \DateTime::createFromFormat($format, $value);
+        
         return $d and $d->format($format) === $value;
     }
 

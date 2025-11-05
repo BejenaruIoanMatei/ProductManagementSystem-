@@ -109,7 +109,7 @@ class Router
     public function route($uri, $method)
     {
         foreach ($this->routes as $route) {
-            if ($route['uri'] === $uri and $route['method'] === strtoupper($method)){
+            if ($route['uri'] === $uri and $route['method'] === strtoupper($method)) {
                 Middleware::resolve($route['middleware']);
                 return require base_path('app/controllers/' . $route['controller']);
             }
@@ -126,7 +126,7 @@ class Router
     {
         http_response_code($code);
         require base_path("app/views/$code.php");
+
         die();
     }
-
 }

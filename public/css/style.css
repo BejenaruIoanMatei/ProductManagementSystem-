@@ -276,7 +276,7 @@ main {
   padding: 25px 30px;
   border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 main h1 {
@@ -286,7 +286,7 @@ main h1 {
   color: #333;
 }
 
-.create-product-form label{
+.create-product-form label {
   display: block;
   font-size: 0.95rem;
   color: #333;
@@ -306,25 +306,25 @@ main h1 {
 
 .create-product-form input:focus,
 .create-product-form textarea:focus {
-    border-color: #0077b6;
-    outline: none;
+  border-color: #0077b6;
+  outline: none;
 }
 
 .create-product-form button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    background: #0077b6;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: background 0.2s;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #0077b6;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.2s;
 }
 
 .create-product-form button:hover {
-    background: #005f86;
+  background: #005f86;
 }
 
 @media (max-width: 992px) {

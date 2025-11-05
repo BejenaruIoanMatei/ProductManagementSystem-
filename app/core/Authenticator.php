@@ -24,16 +24,13 @@ class Authenticator
             'email' => $email
         ])->find();
 
-        if ($user)
-        {
-            if (password_verify($password, $user['password']))
-            {
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
                 $this->login([
                     'email' => $email
                 ]);
 
                 return true;
-
             }
         }
     }
@@ -52,7 +49,6 @@ class Authenticator
         session_regenerate_id(
             delete_old_session: true
         );
-
     }
 
     /**

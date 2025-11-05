@@ -75,6 +75,7 @@ class Database
         if (!$result) {
             abort(Response::NOT_FOUND);
         }
+
         return $result;
     }
 
@@ -87,6 +88,7 @@ class Database
         if (!$result) {
             abort(Response::NOT_FOUND);
         }
+        
         return $result;
     }
 

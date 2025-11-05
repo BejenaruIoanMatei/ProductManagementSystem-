@@ -13,8 +13,7 @@ if ($form->validate($email, $password))
 {
     $auth = new Authenticator();
 
-    if($auth->attempt($email, $password))
-    {
+    if($auth->attempt($email, $password)) {
         redirect('/');
     } else {
         $form->error('email', 'No matching account found for that email and password.');

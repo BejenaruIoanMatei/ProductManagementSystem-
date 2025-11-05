@@ -1,7 +1,7 @@
 <?php require base_path('app/views/partials/head.html') ?>
 
-
 <body>
+    
     <?php require base_path('app/views/partials/nav.php') ?>
     <?php require base_path('app/views/partials/banner.php') ?>
 
@@ -37,4 +37,5 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/script.js"></script>
 </body>
+
 </html>

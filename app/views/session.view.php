@@ -97,7 +97,7 @@
             <?php endif ?>
         </div>
 
-        <?php if (! ($_SESSION['user'] ?? false)) : ?>  
+        <?php if (!($_SESSION['user'] ?? false)): ?>
             <div>
                 <button type="submit">Log In</button>
             </div>

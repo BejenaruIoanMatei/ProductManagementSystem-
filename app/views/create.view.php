@@ -1,11 +1,9 @@
-
 <?php require base_path('app/views/partials/head.html') ?>
 
 <body>
 
-<?php require base_path('app/views/partials/nav.php') ?>
-<?php require base_path('app/views/partials/banner.php') ?>
-
+    <?php require base_path('app/views/partials/nav.php') ?>
+    <?php require base_path('app/views/partials/banner.php') ?>
 
     <main>
         <form class="create-product-form" action="/products" method="POST" enctype="multipart/form-data">
@@ -13,17 +11,17 @@
                 Name: <br>
                 <input type="text" name="name" required>
             </label>
-            <?php if (isset($errors['name'])) : ?>
+            <?php if (isset($errors['name'])): ?>
                 <p class="error"><?= $errors['name'] ?></p>
             <?php endif ?>
             <br><br>
-            
+
 
             <label>
                 Description: <br>
                 <textarea name="description" rows="4" required></textarea>
             </label>
-            <?php if (isset($errors['description'])) : ?>
+            <?php if (isset($errors['description'])): ?>
                 <p class="error"><?= $errors['description'] ?></p>
             <?php endif ?>
             <br><br>
@@ -32,7 +30,7 @@
                 Price: <br>
                 <input type="number" name="price" step="0.01" required>
             </label>
-            <?php if (isset($errors['price'])) : ?>
+            <?php if (isset($errors['price'])): ?>
                 <p class="error"><?= $errors['price'] ?></p>
             <?php endif ?>
             <br><br>
@@ -41,7 +39,7 @@
                 Image: <br>
                 <input type="file" name="image" accept="image/*" required>
             </label>
-            <?php if (isset($errors['image'])) : ?>
+            <?php if (isset($errors['image'])): ?>
                 <p class="error"><?= $errors['image'] ?></p>
             <?php endif ?>
             <br><br>
@@ -50,7 +48,7 @@
                 Availability Date: <br>
                 <input type="date" name="availability_date" required>
             </label>
-            <?php if (isset($errors['availability_date'])) : ?>
+            <?php if (isset($errors['availability_date'])): ?>
                 <p class="error"><?= $errors['availability_date'] ?></p>
             <?php endif ?>
             <br><br>
@@ -59,7 +57,7 @@
                 In Stock: <br>
                 <input type="number" name="in_stock" value="1" required>
             </label>
-            <?php if (isset($errors['in_stock'])) : ?>
+            <?php if (isset($errors['in_stock'])): ?>
                 <p class="error"><?= $errors['in_stock'] ?></p>
             <?php endif ?>
             <br><br>
@@ -68,7 +66,7 @@
                 Created At: <br>
                 <input type="date" name="created_at" required>
             </label>
-            <?php if (isset($errors['created_at'])) : ?>
+            <?php if (isset($errors['created_at'])): ?>
                 <p class="error"><?= $errors['created_at'] ?></p>
             <?php endif ?>
             <br><br>
@@ -77,4 +75,5 @@
         </form>
     </main>
 </body>
+
 </html>
